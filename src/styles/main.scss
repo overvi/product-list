@@ -44,6 +44,7 @@
     padding-inline: 1.5em;
     border: 1px solid map-get($rose, "400");
     position: absolute;
+    white-space: nowrap;
     inset: auto 0 auto 0;
     margin-inline: auto;
     width: fit-content;
