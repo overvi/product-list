@@ -1,0 +1,37 @@
+@use "variables" as var;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+button {
+  font: inherit;
+  border: 0;
+  background: 0;
+}
+
+a[class] {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+  display: block;
+}
+
+body {
+  font-family: "Red Hat Text", sans-serif;
+  min-height: 100vh;
+  background: map-get(var.$rose, "50");
+  padding: 3rem;
+}
+
+h1 {
+  font-size: 2.4rem;
+}

@@ -1,0 +1,17 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Cards from "../components/Cards";
+
+import Cart from "../components/Cart";
+import Modal from "../components/Modal";
+---
+
+<Layout title={"Products"}>
+  <Modal client:only />
+  <h1>Desserts</h1>
+  <div class="flex container gap-3">
+    <Cards client:only />
+
+    <Cart client:only />
+  </div>
+</Layout>

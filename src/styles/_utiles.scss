@@ -1,0 +1,55 @@
+@use "variables" as *;
+
+.flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.gap-3 {
+  gap: 1.5rem;
+}
+
+.text-rose-400 {
+  color: map-get($rose, "400");
+}
+
+.text-white {
+  color: #fff;
+}
+
+.bg-white {
+  background: #fff;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.btn {
+  cursor: pointer;
+  &-primary {
+    background: $primary;
+    color: #fff;
+    padding: 0.8rem;
+    border-radius: 100vw;
+    width: 100%;
+    transition: background 200ms ease-in;
+
+    &:hover {
+      background: darken($color: $primary, $amount: 20);
+    }
+  }
+}
+
+@each $key, $value in $font-weights {
+  .font-#{$key} {
+    font-weight: $value;
+  }
+}

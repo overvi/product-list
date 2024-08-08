@@ -1,0 +1,192 @@
+@use "reset" as *;
+@use "variables" as *;
+@use "utiles" as *;
+
+.container {
+  flex-direction: column;
+}
+
+.cards {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  place-items: center;
+  gap: 2rem;
+}
+
+.card {
+  &-img {
+    border-radius: 0.8rem;
+
+    .card--active & {
+      outline: 2px solid $primary;
+    }
+  }
+  &-img-container {
+    position: relative;
+    margin-bottom: 3rem;
+  }
+
+  &-title {
+    margin-block: 0.3rem;
+    &--brief {
+      font-size: 0.9rem;
+    }
+  }
+
+  &-price {
+    color: $primary;
+  }
+
+  &-add {
+    border-radius: 100vw;
+    padding: 0.7em;
+    padding-inline: 1.5em;
+    border: 1px solid map-get($rose, "400");
+    position: absolute;
+    inset: auto 0 auto 0;
+    margin-inline: auto;
+    width: fit-content;
+    transform: translateY(-50%);
+    width: 168px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    .card--active & {
+      background: $primary;
+      border: 0;
+    }
+  }
+
+  &-increment,
+  &-decrement {
+    border: 1px solid #fff;
+    border-radius: 100vw;
+    height: 20px;
+    width: 20px;
+    justify-content: center;
+  }
+
+  &-thumbnail {
+    border-radius: 0.3rem;
+  }
+}
+
+.cart {
+  padding: 2rem;
+  height: fit-content;
+  border-radius: 0.7rem;
+
+  &--empty {
+    flex-basis: 38%;
+  }
+
+  &-heading {
+    color: $primary;
+  }
+
+  &-description {
+    color: map-get($rose, "500");
+    font-size: 0.8rem;
+  }
+
+  &-content {
+    text-align: center;
+    & > * {
+      margin-top: 1rem;
+    }
+  }
+
+  &-card {
+    padding-bottom: 1.1rem;
+    border-bottom: 1px solid map-get($rose, "100");
+
+    &-remove {
+      border: 1px solid map-get($rose, "300");
+      border-radius: 100vw;
+      padding: 0.2rem;
+      transition: 700ms ease-out;
+      cursor: pointer;
+
+      path {
+        transition: 700ms ease-out;
+      }
+
+      &:hover {
+        border-color: map-get($rose, "900");
+        path {
+          fill: map-get($rose, "900");
+        }
+      }
+    }
+  }
+
+  &-total {
+    font-size: 1.5rem;
+  }
+
+  &-delivery {
+    background: map-get($rose, "50");
+    margin-block: 1rem;
+    white-space: nowrap;
+    padding: 1rem 1.3rem;
+    border-radius: 0.5rem;
+
+    p {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+  }
+}
+
+.modal {
+  display: grid;
+  place-items: center;
+  position: fixed;
+  place-items: center;
+  inset: 0;
+  z-index: 2;
+
+  &-background {
+    z-index: 1;
+    position: fixed;
+    background: rgba(black, 0.3);
+    inset: 0;
+  }
+
+  &-content {
+    z-index: 2;
+    padding: 1.5rem;
+    border-radius: 0.6rem;
+    width: 30rem;
+  }
+
+  &-cart {
+    margin-block: 2rem;
+    background: map-get($rose, "50");
+    padding: 1rem;
+    border-radius: 0.6rem;
+    overflow: auto;
+    max-height: 20rem;
+
+    > * {
+      margin-top: 1rem;
+    }
+  }
+}
+
+@media (width > 80em) {
+  .container {
+    flex-direction: row;
+  }
+
+  body {
+    padding: 5rem;
+  }
+
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
