@@ -17,6 +17,8 @@
 .card {
   &-img {
     border-radius: 0.8rem;
+    height: 230px;
+    object-fit: cover;
 
     .card--active & {
       outline: 2px solid $primary;

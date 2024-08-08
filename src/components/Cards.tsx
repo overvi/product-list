@@ -1,6 +1,9 @@
+import { LazyLoadImage } from "react-lazy-load-image-component";
+
 import { useStore } from "@nanostores/react";
 import { addItemToState, cards, cart, removeItemFromStore } from "../store";
 import { useState } from "react";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const Cards = () => {
   const cardData = useStore(cards);
@@ -27,8 +30,10 @@ const Cards = () => {
                 media="(min-width: 750px) and (max-width: 900px)"
                 srcSet={card.images.tablet}
               />
-              <img
+              <LazyLoadImage
                 width="300"
+                height="230"
+                effect="blur"
                 className="card-img"
                 src={card.images.desktop}
                 onClick={() => appendCard(index)}
