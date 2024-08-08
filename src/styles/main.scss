@@ -163,7 +163,7 @@
     z-index: 2;
     padding: 1.5rem;
     border-radius: 0.6rem;
-    width: 30rem;
+    width: min(100%, 30rem);
   }
 
   &-cart {
